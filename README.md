@@ -145,3 +145,16 @@ previously when `ecto` was updated:
       fun_or_multi,
       Ecto.Repo.Supervisor.tuplet(repo, prepare_opts(:transaction, opts))
 ```
+
+## Success case
+
+I initially tried to separate these steps by a github branch, `update-dep`.
+However, if you do these steps, recompilation works as expected:
+
+1. Run everything in `main` branch
+2. `git checkout update-dep`
+3. `mix deps.update --all`
+4. `iex -S mix`
+5. `B.transaction(fn -> :ok end)`
+
+¯\\_(ツ)_/¯ 
